@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="relative h-[100vh]">
+      <header
+        class="h-[50%] flex bg-[url('/images/bg-desktop-dark.jpg')] bg-cover bg-no-repeat"
+      ></header>
+      <main class="absolute top-[80px] w-full grid place-content-center">
+        <div class="w-[450px] space-y-8">
+          <div class="flex justify-between items-center">
+            <h2 class="text-white text-[3rem] tracking-[10px] uppercase">
+              Todo
+            </h2>
+            <button>
+              <img
+                class="w-[20px] h-[20px]"
+                src="/images/icon-sun.svg"
+                alt="icon"
+              />
+            </button>
+          </div>
+
+          <form id="todoForm">
+            <input
+              class="h-[3rem] w-full bg-slate-800 rounded-md text-white p-4"
+              type="text"
+              placeholder="Type and Press Enter to add..."
+            />
+          </form>
+
+          <div class="bg-slate-800">
+            <ul id="todoList" class="w-full rounded-md text-white">
+
+            </ul>
+
+            <div
+              class="p-6 flex text-sm items-center justify-between text-slate-500"
+            >
+              <span class="text-slate-500"
+                ><span id="totalTodo">0</span> Items Left</span
+              >
+
+              <ul class="flex gap-4 items-center">
+                <li class="">
+                  <button id="allTodo" class="text-slate-500">All</button>
+                </li>
+                <li>
+                  <button id="activeTodo" class="text-slate-500">Active</button>
+                </li>
+                <li>
+                  <button id="completedTodo" class="text-slate-500">
+                    Completed
+                  </button>
+                </li>
+              </ul>
+
+              <button id="clearBtn">Clear Completed</button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="bg-slate-900 min-h-[60%]"></footer>
+    </div>
+
+    <script src="./index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>
