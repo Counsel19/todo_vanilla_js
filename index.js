@@ -7,7 +7,7 @@ const activeTodoBtn = document.getElementById("activeTodo");
 const completedTodoBtn = document.getElementById("completedTodo");
 const clearBtn = document.getElementById("clearBtn");
 
-let allTodo = [];
+let allTodo = JSON.parse(localStorage.getItem("allTodo")) || [];
 
 const getActiveTodos = () => {
   return allTodo.filter((todo) => !todo.isDone);
@@ -65,7 +65,7 @@ const handleDisplayTodo = (filterTodo) => {
                 </button>
               </li>`;
   });
-
+  localStorage.setItem("allTodo", JSON.stringify(allTodo));
   totalTodo.innerText = getActiveTodos().length;
   todoList.innerHTML = todoListElms;
 };
@@ -76,6 +76,7 @@ const handleAddTodo = (e) => {
   const inputValue = todoInput.value;
   const newTodo = new Todo(inputValue);
   allTodo.push(newTodo);
+
   handleDisplayTodo(allTodo);
   todoInput.value = "";
 };
@@ -112,3 +113,5 @@ clearBtn.addEventListener("click", () => {
   allTodo = getActiveTodos();
   handleDisplayTodo(allTodo);
 });
+
+window.onload = () => handleDisplayTodo(allTodo);
